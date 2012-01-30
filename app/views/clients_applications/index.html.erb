@@ -1,0 +1,31 @@
+<h1>Listing clients_applications</h1>
+
+<table>
+  <tr>
+    <th>Start date</th>
+    <th>Expire date</th>
+    <th>License type</th>
+    <th>Number of computers</th>
+    <th>Product key</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clients_applications.each do |clients_application| %>
+  <tr>
+    <td><%= clients_application.start_date %></td>
+    <td><%= clients_application.expire_date %></td>
+    <td><%= clients_application.license_type %></td>
+    <td><%= clients_application.number_of_computers %></td>
+    <td><%= clients_application.product_key %></td>
+    <td><%= link_to 'Show', clients_application %></td>
+    <td><%= link_to 'Edit', edit_clients_application_path(clients_application) %></td>
+    <td><%= link_to 'Destroy', clients_application, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clients application', new_clients_application_path %>

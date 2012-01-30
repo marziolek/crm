@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date: 2012-01-30
+  expire_date: 2012-01-30
+  license_type: MyString
+  number_of_computers: 1
+  product_key: MyString
+
+two:
+  start_date: 2012-01-30
+  expire_date: 2012-01-30
+  license_type: MyString
+  number_of_computers: 1
+  product_key: MyString

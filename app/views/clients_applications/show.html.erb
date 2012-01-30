@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start date:</b>
+  <%= @clients_application.start_date %>
+</p>
+
+<p>
+  <b>Expire date:</b>
+  <%= @clients_application.expire_date %>
+</p>
+
+<p>
+  <b>License type:</b>
+  <%= @clients_application.license_type %>
+</p>
+
+<p>
+  <b>Number of computers:</b>
+  <%= @clients_application.number_of_computers %>
+</p>
+
+<p>
+  <b>Product key:</b>
+  <%= @clients_application.product_key %>
+</p>
+
+
+<%= link_to 'Edit', edit_clients_application_path(@clients_application) %> |
+<%= link_to 'Back', clients_applications_path %>
