@@ -1,4 +1,12 @@
 Crm::Application.routes.draw do
+  resources :contact_people
+
+  resources :clients_applications
+
+  resources :applications
+
+  resources :clients
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
