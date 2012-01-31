@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :start_date %><br />
+    <%= f.label "Data początku" %><br />
     <%= f.date_select :start_date %>
   </div>
   <div class="field">
-    <%= f.label :expire_date %><br />
+    <%= f.label "Data zakończenia" %><br />
     <%= f.date_select :expire_date %>
   </div>
   <div class="field">
-    <%= f.label :license_type %><br />
+    <%= f.label "Typ licencji" %><br />
     <%= f.text_field :license_type %>
   </div>
   <div class="field">
-    <%= f.label :number_of_computers %><br />
+    <%= f.label "Liczba stanowisk" %><br />
     <%= f.number_field :number_of_computers %>
   </div>
   <div class="field">
-    <%= f.label :product_key %><br />
+    <%= f.label "Klucz produktu" %><br />
     <%= f.text_field :product_key %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Dodaj" %>
   </div>
 <% end %>
