@@ -1,4 +1,5 @@
 class ClientsApplicationsController < ApplicationController
+  before_filter :authenticate
   # GET /clients_applications
   # GET /clients_applications.json
   def index
