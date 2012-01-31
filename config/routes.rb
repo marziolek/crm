@@ -1,4 +1,9 @@
 Crm::Application.routes.draw do
+  #get "users/new"
+  #get "users/create"
+  #get "users/edit"
+  #get "users/update"
+
   resources :contact_people
 
   resources :clients_applications
@@ -6,6 +11,10 @@ Crm::Application.routes.draw do
   resources :applications
 
   resources :clients
+
+  resources :users, :only => [:new, :create, :edit, :update]
+
+  root :to => "applications#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

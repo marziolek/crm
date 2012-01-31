@@ -35,4 +35,5 @@ group :test do
   gem 'turn', '0.8.2', :require => false
 end
 
+gem 'authlogic'
 gem 'therubyracer'
