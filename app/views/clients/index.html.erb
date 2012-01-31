@@ -1,4 +1,4 @@
-<h1>Listing clients</h1>
+<h1>Klienci</h1>
 
 <table>
   <tr>
@@ -19,13 +19,13 @@
     <td><%= client.city %></td>
     <td><%= client.postal_code %></td>
     <td><%= client.regon %></td>
-    <td><%= link_to 'Show', client %></td>
-    <td><%= link_to 'Edit', edit_client_path(client) %></td>
-    <td><%= link_to 'Destroy', client, confirm: 'Are you sure?', method: :delete %></td>
+    <th><%= link_to 'Pokaż', client %></th>
+    <th><%= link_to 'Edytuj', edit_client_path(client) %></th>
+    <th><%= link_to 'Usuń', client, confirm: 'Jesteś pewien?', method: :delete %></th>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Client', new_client_path %>
+<%= link_to 'Dodaj nowego klienta', new_client_path %>

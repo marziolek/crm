@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Crm</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>CRM</title>
+    <%= stylesheet_link_tag  "style.css" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="top"></div>
+    <div id="content">
+      <div id="menu">
+        <%= if (controller_name == "applications") then (link_to "Aplikacje", applications_path, id: :menu_highlighted)
+            else (link_to "Aplikacje", applications_path)
+            end 
+          %>
+        <%= if (controller_name == "clients") then (link_to "Klienci", clients_path, id: :menu_highlighted)
+            else (link_to "Klienci", clients_path)
+            end 
+        %>
+        <%= if (controller_name == "clients_applications") then (link_to "Aplikacje klientów", clients_applications_path, id: :menu_highlighted)
+            else (link_to "Aplikacje klientów", clients_applications_path)
+            end 
+        %>
+        <%= if (controller_name == "contact_people") then (link_to "Osoby kontaktowe", contact_people_path, id: :menu_highlighted)
+            else (link_to "Osoby kontatkowe", contact_people_path)
+            end 
+        %>
+        <% if current_user %>  
+        <%= link_to "Wyloguj", user_session_path, method: :delete, id: :wyloguj %>
+        <% end %> 
+      </div>
+      <%= yield %>
+    </div>
+    <footer>
+    
+    </footer>
+  </body>
 </html>
+

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ContactPeopleController < ApplicationController
   before_filter :authenticate
   # GET /contact_people

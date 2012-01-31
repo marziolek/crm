@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @contact_person.name %>
-</p>
-
-<p>
-  <b>Surname:</b>
-  <%= @contact_person.surname %>
-</p>
+<h2><%= @contact_person.name %> <%= @contact_person.surname %></h2>
 
 <p>
   <b>Position:</b>
@@ -26,5 +18,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_contact_person_path(@contact_person) %> |
-<%= link_to 'Back', contact_people_path %>
+<%= link_to 'Edytuj', edit_contact_person_path(@contact_person) %> |
+<%= link_to 'Wstecz', contact_people_path %>

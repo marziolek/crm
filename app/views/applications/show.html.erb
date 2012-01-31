@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @application.name %>
-</p>
+<h2><%= @application.name %></h2>
 
 <p>
   <b>Description:</b>
@@ -16,5 +13,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_application_path(@application) %> |
-<%= link_to 'Back', applications_path %>
+<%= link_to 'Edytuj', edit_application_path(@application) %> |
+<%= link_to 'Wstecz', applications_path %>

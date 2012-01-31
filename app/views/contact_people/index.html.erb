@@ -1,4 +1,4 @@
-<h1>Listing contact_people</h1>
+<h1>Osoby kontaktowe</h1>
 
 <table>
   <tr>
@@ -19,13 +19,13 @@
     <td><%= contact_person.position %></td>
     <td><%= contact_person.phone %></td>
     <td><%= contact_person.email %></td>
-    <td><%= link_to 'Show', contact_person %></td>
-    <td><%= link_to 'Edit', edit_contact_person_path(contact_person) %></td>
-    <td><%= link_to 'Destroy', contact_person, confirm: 'Are you sure?', method: :delete %></td>
+    <th><%= link_to 'Pokaż', contact_person %></th>
+    <th><%= link_to 'Edytuj', edit_contact_person_path(contact_person) %></th>
+    <th><%= link_to 'Usuń', contact_person, confirm: 'Jesteś pewien?', method: :delete %></th>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Contact person', new_contact_person_path %>
+<%= link_to 'Dodaj osobę kontaktową', new_contact_person_path %>

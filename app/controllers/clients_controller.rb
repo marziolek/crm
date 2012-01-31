@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ClientsController < ApplicationController
   before_filter :authenticate
   # GET /clients

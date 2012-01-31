@@ -1,4 +1,4 @@
-<h1>Listing clients_applications</h1>
+<h1>Aplikacje klientów</h1>
 
 <table>
   <tr>
@@ -19,13 +19,13 @@
     <td><%= clients_application.license_type %></td>
     <td><%= clients_application.number_of_computers %></td>
     <td><%= clients_application.product_key %></td>
-    <td><%= link_to 'Show', clients_application %></td>
-    <td><%= link_to 'Edit', edit_clients_application_path(clients_application) %></td>
-    <td><%= link_to 'Destroy', clients_application, confirm: 'Are you sure?', method: :delete %></td>
+    <th><%= link_to 'Pokaż', clients_application %></th>
+    <th><%= link_to 'Edytuj', edit_clients_application_path(clients_application) %></th>
+    <th><%= link_to 'Usuń', clients_application, confirm: 'Jesteś pewien?', method: :delete %></th>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Clients application', new_clients_application_path %>
+<%= link_to 'Dodaj aplikację klienta', new_clients_application_path %>

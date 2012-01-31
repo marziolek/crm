@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @client.name %>
-</p>
+<h2><%= @client.name %></h2>
 
 <p>
   <b>Address:</b>
@@ -26,5 +23,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Edytuj', edit_client_path(@client) %> |
+<%= link_to 'Wstecz', clients_path %>
