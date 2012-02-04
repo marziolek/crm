@@ -1,27 +1,23 @@
 <h1>Osoby kontaktowe</h1>
 
 <table>
-  <tr>
-    <th>Imię</th>
-    <th>Nazwisko</th>
-    <th>Stanowisko</th>
-    <th>Telefon</th>
-    <th>E-mail</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Stanowisko</th>
+      <th>Telefon</th>
+      <th>E-mail</th>
+    </tr>
+  </thead>
 
 <% @contact_people.each do |contact_person| %>
-  <tr>
+  <tr onclick="document.location='<%= contact_person_path(contact_person) %>';">
     <td><%= contact_person.name %></td>
     <td><%= contact_person.surname %></td>
     <td><%= contact_person.position %></td>
     <td><%= contact_person.phone %></td>
     <td><%= contact_person.email %></td>
-    <th><%= link_to 'Pokaż', contact_person %></th>
-    <th><%= link_to 'Edytuj', edit_contact_person_path(contact_person) %></th>
-    <th><%= link_to 'Usuń', contact_person, confirm: 'Jesteś pewien?', method: :delete %></th>
   </tr>
 <% end %>
 </table>

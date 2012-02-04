@@ -27,4 +27,5 @@
 
 
 <%= link_to 'Edytuj', edit_clients_application_path(@clients_application) %> |
+<%= link_to 'Usuń', @clients_application, confirm: 'Jesteś pewien?', method: :delete %> |
 <%= link_to 'Wstecz', clients_applications_path %>

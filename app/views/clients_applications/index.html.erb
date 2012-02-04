@@ -1,27 +1,24 @@
 <h1>Aplikacje klientów</h1>
 
 <table>
-  <tr>
-    <th>Data początku</th>
-    <th>Data wygaśnięcia</th>
-    <th>Typ licencji</th>
-    <th>Liczba stanowisk</th>
-    <th>Klucz produktu</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Data początku</th>
+      <th>Data wygaśnięcia</th>
+      <th>Typ licencji</th>
+      <th>Liczba stanowisk</th>
+      <th>Klucz produktu</th>
+    </tr>
+  </thead>
 
 <% @clients_applications.each do |clients_application| %>
   <tr>
+  <tr onclick="document.location='<%= clients_application_path(clients_application) %>';">
     <td><%= clients_application.start_date %></td>
     <td><%= clients_application.expire_date %></td>
     <td><%= clients_application.license_type %></td>
     <td><%= clients_application.number_of_computers %></td>
     <td><%= clients_application.product_key %></td>
-    <th><%= link_to 'Pokaż', clients_application %></th>
-    <th><%= link_to 'Edytuj', edit_clients_application_path(clients_application) %></th>
-    <th><%= link_to 'Usuń', clients_application, confirm: 'Jesteś pewien?', method: :delete %></th>
   </tr>
 <% end %>
 </table>

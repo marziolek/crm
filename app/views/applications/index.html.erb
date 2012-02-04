@@ -1,23 +1,19 @@
 <h1>Aplikacje</h1>
 
 <table>
-  <tr>
-    <th>Nazwa</th>
-    <th>Opis</th>
-    <th>Wersja</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Nazwa</th>
+      <th>Opis</th>
+      <th>Wersja</th>
+    </tr>
+  </thead>
 
 <% @applications.each do |application| %>
-  <tr>
+  <tr onclick="document.location='<%= application_path(application) %>';">
     <td><%= application.name %></td>
     <td><%= application.description %></td>
     <td><%= application.version %></td>
-    <th><%= link_to 'Pokaż', application %></th>
-    <th><%= link_to 'Edytuj', edit_application_path(application) %></th>
-    <th><%= link_to 'Usuń', application, confirm: 'Jesteś pewien?', method: :delete %></th>
   </tr>
 <% end %>
 </table>

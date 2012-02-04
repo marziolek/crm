@@ -1,3 +1,69 @@
 // Place all the styles related to the user_sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body {
+  height:100%;
+  overflow:auto;
+}
+
+body {
+  display: table;
+  padding: 0;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #EEE;
+  color: #333;
+  font-family: helvetica, verdana, arial, sans-serif;
+  font-size: 22px;
+  background-image: -webkit-gradient(radial, 50% 50%, 50% 100%, from(#EEE), to(#CCC));
+  background-image: -webkit-radial-gradient(center, #EEE, #AAA);
+  background-image:    -moz-linear-gradient(center, #EEE, #AAA);
+  background-image:     -ms-linear-gradient(center, #EEE, #AAA);
+  background-image:      -o-linear-gradient(center, #EEE, #AAA);
+}
+
+#content_login {
+  overflow: hidden;
+  margin: 0 auto;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+
+input {
+  line-height:30px;
+  border:none;
+  border-radius:5px;
+  -moz-box-shadow:    2px 2px 3px 3px #888;
+  -webkit-box-shadow: 2px 2px 3px 3px #888;
+  box-shadow:         5px 5px 5px #888;
+  background-color:#EEE;
+}
+
+p {
+  padding-left:5px;
+  padding-right:5px;
+}
+
+p#zaloguj {
+  text-align:center;
+}
+
+input[type="submit"]{ 
+  padding:7px;
+  font-size:16px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  background-color:#EEE;
+  background-image: -webkit-gradient(linear, 50% 50%, 50% 100%, from(#BBB), to(#EEE));
+  background-image: -webkit-linear-gradient(top, #EEE, #BBB);
+  background-image:    -moz-linear-gradient(top, #EEE, #BBB);
+  background-image:     -ms-linear-gradient(top, #EEE, #BBB);
+  background-image:      -o-linear-gradient(top, #EEE, #BBB);
+}
+
+input:focus {
+  background-color:#FFF;
+}

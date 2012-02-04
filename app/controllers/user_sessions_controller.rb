@@ -1,5 +1,6 @@
 #encoding: UTF-8
 class UserSessionsController < ApplicationController
+  layout "login" 
   def new
     @user_session = UserSession.new
   end

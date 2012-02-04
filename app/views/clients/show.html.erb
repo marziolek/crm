@@ -24,4 +24,5 @@
 
 
 <%= link_to 'Edytuj', edit_client_path(@client) %> |
+<%= link_to 'Usuń', @client, confirm: 'Jesteś pewien?', method: :delete %> |
 <%= link_to 'Wstecz', clients_path %>
