@@ -36,4 +36,5 @@ group :test do
 end
 
 gem 'authlogic'
+gem 'mail' 
 gem 'therubyracer'
