@@ -23,11 +23,7 @@
 </p>
 <p>
   <b>Kontakt:</b>
-<ul>
-  <% @client.contact_people.each do |person| %>
-	<li><%= person.position%>: <%= person.name%> <%= person.surname%> - <%= person.phone%></li>
-  <% end %>
-</ul>
+  <%= @client.contact_people %>
 </p>
 
 

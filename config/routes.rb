@@ -1,4 +1,6 @@
 Crm::Application.routes.draw do
+  resources :client_contact_people
+
   #get "user_sessions/new"
   #get "user_sessions/create"
   #get "user_sessions/destroy"
@@ -17,6 +19,8 @@ Crm::Application.routes.draw do
   resources :applications
 
   resources :clients
+
+  resources :clients_contact_people
 
   resources :users, :only => [:new, :create, :edit, :update]
 

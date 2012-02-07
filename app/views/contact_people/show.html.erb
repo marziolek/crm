@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @contact_person.name %> <%= @contact_person.surname %></h2>
-
+<p>
+  <b>Firma:</b>
+  <%= @contact_person_company.name %> - <%= @contact_person_company.city %>
+</p>
 <p>
   <b>Position:</b>
   <%= @contact_person.position %>
