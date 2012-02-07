@@ -4,7 +4,7 @@ class ClientMailer < ActionMailer::Base
   def powiadomienie(user)
     @user = user
     #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
-    mail(:to => "#{"marcin ziolek"} <#{"mar.ziolek@gmail.com"}>", :subject => "cos ze strony")
+    mail(:to => "#{"marcin ziolek"} <#{@user.mail}>", :subject => "cos ze strony")
   end
 
 end

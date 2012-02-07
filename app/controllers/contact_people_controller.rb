@@ -18,7 +18,9 @@ class ContactPeopleController < ApplicationController
     @contact_person = ContactPerson.find(params[:id])
     @contact_person_company = Client.find(@contact_person.client_id)
 
-      ClientMailer.powiadomienie(@contact_person).deliver
+
+    ClientMailer.powiadomienie(@contact_person).deliver
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contact_person }
