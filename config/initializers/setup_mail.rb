@@ -8,7 +8,7 @@ ActionMailer::Base.smtp_settings = {
   :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options[:host] = "wierzba.wzks.uj.edu.pl:3313"
+ActionMailer::Base.default_url_options[:host] = "wierzba.wzks.uj.edu.pl:3314"
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.perform_deliveries = true
 #Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
