@@ -16,9 +16,11 @@ class ContactPeopleController < ApplicationController
   # GET /contact_people/1.json
   def show
     @contact_person = ContactPerson.find(params[:id])
-                  
-                  ClientMailer.powiadomienie(@contact_person).deliver
-    
+    @contact_person_company = Client.find(@contact_person.client_id)
+
+
+    ClientMailer.powiadomienie(@contact_person).deliver
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contact_person }

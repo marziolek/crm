@@ -31,6 +31,10 @@
     <%= f.label "E-mail" %><br />
     <%= f.text_field :email %>
   </div>
+  <div class="field">
+    <%= f.label "Client" %><br />
+    <%= f.collection_select(:client_id, Client.all, :id, :display_name, {:prompt => true}) %>
+  </div>
   <div class="actions">
     <%= f.submit "Dodaj" %>
   </div>
