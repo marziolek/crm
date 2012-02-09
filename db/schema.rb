@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20120209152018) do
     t.string   "product_key"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "client_id"
+    t.integer  "application_id"
   end
 
   create_table "contact_people", :force => true do |t|
