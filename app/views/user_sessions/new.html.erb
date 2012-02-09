@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 <%= form_for @user_session, :url => user_session_path do |f| %>
-  <p>
-  <%= f.label :login %> <br />
-  <%= f.text_field :login, :size => "40" %>
-  </p>
-  <p>
-  <%= f.label "Hasło" %> <br />
-  <%= f.password_field :password, :size => "40" %>
-  </p>
+  <div class="field">
+    <p>
+    <%= f.label :login %> <br />
+    <%= f.text_field :login, :size => "40" %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+    <%= f.label "Hasło" %> <br />
+    <%= f.password_field :password, :size => "40" %>
+    </p>
+  </div>
   <p id="zaloguj"><%= f.submit "Zaloguj" %> </p>
 <% end %>

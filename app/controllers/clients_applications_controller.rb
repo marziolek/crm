@@ -10,13 +10,15 @@ class ClientsApplicationsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @clients_applications }
     end
+  
+    
   end
 
   # GET /clients_applications/1
   # GET /clients_applications/1.json
   def show
     @clients_application = ClientsApplication.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @clients_application }

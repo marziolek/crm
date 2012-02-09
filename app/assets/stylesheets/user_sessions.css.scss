@@ -67,3 +67,14 @@ input[type="submit"]{
 input:focus {
   background-color:#FFF;
 }
+
+
+#notice {
+  color: red; }
+
+.field_with_errors {
+  padding: 2px 5px 5px 2px;
+  border:2px solid red;
+  border-radius: 7px;
+  display: table; }
+
