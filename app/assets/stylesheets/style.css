@@ -184,3 +184,39 @@ h1, h2 {
   padding-left:40px;
 }
 
+.niedlugo_wygasa {
+  color:darkorange;
+}
+
+.wygasla {
+  color:red;
+}
+
+p.legenda_pomarańczowa {
+  color:darkorange;
+  text-align:right;
+  margin:2px auto;
+}
+
+p.legenda_czerwona {
+  color:red;
+  text-align:right;
+  margin:2px auto;
+}
+
+.wyslij_oferte {
+  padding:5px;
+  margin-left:10px;
+  background-color:orange;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(orange), to(darkorange));
+  background-image: -webkit-linear-gradient(top, orange, darkorange);
+  background-image:    -moz-linear-gradient(top, orange, darkorange);
+  background-image:     -ms-linear-gradient(top, orange, darkorange);
+  background-image:      -o-linear-gradient(top, orange, darkorange);
+  border-radius:5px;
+}
+
+a.wyslij_oferte:hover {
+  color:#333;
+  text-decoration:underline;
+}

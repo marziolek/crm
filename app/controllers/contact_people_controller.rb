@@ -85,6 +85,11 @@ class ContactPeopleController < ApplicationController
       format.json { head :ok }
     end
   end
-
+  
+  def mail
+    @contact_person = ContactPerson.find(params[:id])
+    
+    ClientMailer.powiadomienie(@contact_person).deliver
+  end
 
 end

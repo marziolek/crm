@@ -10,8 +10,6 @@ class ClientsApplicationsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @clients_applications }
     end
-  
-    
   end
 
   # GET /clients_applications/1
@@ -84,4 +82,5 @@ class ClientsApplicationsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
 end

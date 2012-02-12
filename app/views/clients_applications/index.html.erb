@@ -12,8 +12,14 @@
   </thead>
 
 <% @clients_applications.each do |clients_application| %>
-  <tr>
-  <tr onclick="document.location='<%= clients_application_path(clients_application) %>';">
+  <% klasa = "nie_wygasa"
+     if (Date.today >= clients_application.expire_date - 30.days && Date.today < clients_application.expire_date)
+        klasa = "niedlugo_wygasa"
+     elsif (Date.today >= clients_application.expire_date)
+        klasa = "wygasla"
+     end
+  %>  
+<tr class = "<%= klasa %>" onclick="document.location='<%= clients_application_path(clients_application) %>';">
     <td><%= clients_application.start_date %></td>
     <td><%= clients_application.expire_date %></td>
     <td><%= clients_application.license_type %></td>
@@ -22,7 +28,8 @@
   </tr>
 <% end %>
 </table>
+<p class="legenda_pomarańczowa">Wygasa za miesiąc lub krócej.</p>
+<p class="legenda_czerwona">Wygasła!</p>
 
 <br />
-
 <%= link_to 'Dodaj aplikację klienta', new_clients_application_path %>
