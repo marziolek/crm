@@ -7,4 +7,6 @@ class Client < ActiveRecord::Base
 		"#{name} - #{city}"
 	end
 
+	has_many :clients_applications
+	has_many :applications, :through => :clients_applications
 end

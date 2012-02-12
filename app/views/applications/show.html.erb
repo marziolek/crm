@@ -11,7 +11,14 @@
   <b>Version:</b>
   <%= @application.version %>
 </p>
-
+<p>
+  <b>Klienci:</b>
+<ul>
+  <% @application.clients.each do |cli| %>
+	<li><%= cli.display_name%></li>
+  <% end %>
+</ul>
+</p>
 
 <%= link_to 'Edytuj', edit_application_path(@application) %> |
 <%= link_to 'Usuń', @application, confirm: 'Jesteś pewien?', method: :delete %> |

@@ -29,6 +29,14 @@
   <% end %>
 </ul>
 </p>
+<p>
+  <b>Aplikacje:</b>
+<ul>
+  <% @client.applications.each do |app| %>
+	<li><%= app.name%>- v.<%= app.version%></li>
+  <% end %>
+</ul>
+</p>
 
 
 <%= link_to 'Edytuj', edit_client_path(@client) %> |
