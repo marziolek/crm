@@ -1,5 +1,13 @@
 #encoding: utf-8
 class ApplicationController < ActionController::Base
+  
+  def mail
+    @contact_person = ContactPerson.find(params[:id])
+    render "client_mailer/new.html.erb"
+    
+    #ClientMailer.powiadomienie(@contact_person).deliver
+  end
+  
   protect_from_forgery
   helper_method :current_user_session, :current_user
   private
@@ -16,4 +24,6 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path
     end
   end
+
+
 end

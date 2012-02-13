@@ -13,7 +13,7 @@ Crm::Application.routes.draw do
   #get "users/update"
 
   resources :contact_people do
-    get 'mail', :on => :member
+    get 'mail', :on => :member,
   end
 
   resources :clients_applications

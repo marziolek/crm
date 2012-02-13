@@ -86,10 +86,5 @@ class ContactPeopleController < ApplicationController
     end
   end
   
-  def mail
-    @contact_person = ContactPerson.find(params[:id])
-    
-    ClientMailer.powiadomienie(@contact_person).deliver
-  end
 
 end
