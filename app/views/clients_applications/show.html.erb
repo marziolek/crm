@@ -24,6 +24,10 @@
   <b>Product key:</b>
   <%= @clients_application.product_key %>
 </p>
+<p>
+  <b>Klienci:</b>
+  <%= @clients_application.client.display_name%>
+</p>
 
 
 <%= link_to 'Edytuj', edit_clients_application_path(@clients_application) %> |

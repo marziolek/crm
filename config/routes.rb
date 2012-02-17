@@ -15,7 +15,9 @@ Crm::Application.routes.draw do
 
   resources :contact_people
 
-  resources :clients_applications
+  resources :clients_applications do
+	get :add_app_to_client, :on => :member
+  end
 
   resources :applications
 
