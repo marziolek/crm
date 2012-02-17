@@ -20,6 +20,7 @@
   <%= @contact_person.email %>
 </p>
 
+<%= link_to 'Email', mail_contact_person_path(@contact_person) %> |
 <%= link_to 'Edytuj', edit_contact_person_path(@contact_person) %> |
 <%= link_to 'Usuń', @contact_person, confirm: 'Jesteś pewien?', method: :delete %> |
 <%= link_to 'Wstecz', contact_people_path %>

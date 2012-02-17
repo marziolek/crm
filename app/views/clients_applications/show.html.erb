@@ -5,9 +5,20 @@
   <%= @clients_application.start_date %>
 </p>
 
-<p>
+
+<% klasa = "nie_wygasa"
+   if (Date.today >= @clients_application.expire_date - 30.days && Date.today < @clients_application.expire_date)
+     klasa = "niedlugo_wygasa"
+   elsif (Date.today >= @clients_application.expire_date)
+     klasa = "wygasla"
+   end
+%>  
+<p class = "<%= klasa %>">
   <b>Expire date:</b>
   <%= @clients_application.expire_date %>
+  <% if (klasa == "niedlugo_wygasa" || klasa == "wygasla") %>
+    <%= link_to 'Wyślij ofertę', mail_contact_person_path(@clients_application.client.contact_people[0]), class: 'wyslij_oferte' %> 
+  <% end %>  
 </p>
 
 <p>

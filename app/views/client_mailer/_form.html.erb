@@ -1,0 +1,32 @@
+<%= form_for @contact_person, :url => {:action => "mail"}, :html => { :method => "post" } do |f| %>
+  <% if @contact_person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact_person.errors.count, "error") %> prohibited this contact_person from being saved:</h2>
+
+      <ul>
+      <% @contact_person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  h1>
+  E-mail do <%= @contact_person.name %> <%= @contact_person.surname %> z <%= Client.find(@contact_person.client_id).name %>
+</h1>
+  <div class="field">
+    <%= f.label "E-mail" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label "Tytuł" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Treść" %><br />
+    <%= f.text_area :name, :size => "50x12" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Wyślj" %>
+  </div>
+<% end %>
