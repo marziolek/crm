@@ -13,11 +13,12 @@ Crm::Application.routes.draw do
   #get "users/update"
 
   resources :contact_people do
-    get 'mail', :on => :member,
+    get 'mail', :on => :member
   end
 
   resources :clients_applications do
 	get :add_app_to_client, :on => :member
+	get :user_apps, :on => :member
   end
 
   resources :applications
@@ -26,7 +27,7 @@ Crm::Application.routes.draw do
 
   resources :clients_contact_people
 
-  resources :users, :only => [:new, :create, :edit, :update]
+  resources :users
 
   resource :user_session, :only => [:new, :create, :destroy]
 

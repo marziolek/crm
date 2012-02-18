@@ -1,3 +1,4 @@
+<%= debug(@user) %>
 <%= form_for @user do |f| %>
   <!-- trzeba zedytować, żeby nie pozwalał na zmianę loginu -->
   <!-- kod wyświetlający błędy -->
@@ -16,6 +17,14 @@
   <p>
   <%= f.label :password_confirmation %> <br />
   <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+  <%= f.label :admin %> <br />
+  <%= f.check_box :admin%>
+  </p>
+  <p>
+  <%= f.label :client_id %> <br />
+  <%= f.collection_select(:client_id, Client.all, :id, :display_name, {:prompt => true}) %>
   </p>
   <p><%= f.submit "Submit" %> </p>
 <% end %>

@@ -1,6 +1,7 @@
 #encoding: utf-8
 class ClientsController < ApplicationController
-  before_filter :authenticate
+  before_filter :admin_required
+
   # GET /clients
   # GET /clients.json
   def index
