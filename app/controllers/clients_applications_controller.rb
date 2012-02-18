@@ -83,4 +83,16 @@ class ClientsApplicationsController < ApplicationController
     end
   end
   
+  # GET /clients_applications/new
+  # GET /clients_applications/new.json
+  def add_app_to_client
+    @clients_application = ClientsApplication.new
+	@client = Client.find(params[:id])
+	
+    respond_to do |format|
+      format.html # add_app_to_client.html.erb
+      format.json { render json: @clients_application }
+    end
+  end
+
 end

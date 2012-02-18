@@ -1,0 +1,44 @@
+<%= form_for(@clients_application) do |f| %>
+  <% if @clients_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clients_application.errors.count, "error") %> prohibited this clients_application from being saved:</h2>
+
+      <ul>
+      <% @clients_application.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Data początku" %><br />
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label "Data zakończenia" %><br />
+    <%= f.date_select :expire_date %>
+  </div>
+  <div class="field">
+    <%= f.label "Typ licencji" %><br />
+    <%= f.text_field :license_type %>
+  </div>
+  <div class="field">
+    <%= f.label "Liczba stanowisk" %><br />
+    <%= f.number_field :number_of_computers %>
+  </div>
+  <div class="field">
+    <%= f.label "Klucz produktu" %><br />
+    <%= f.text_field :product_key %>
+  </div>
+  
+    <%= f.collection_select(:client_id, Client.all, :id, :display_name, {:prompt => true, :selected => @client.id}, :hidden => true, ) %>
+	
+<div class="field">
+    <%= f.label "Aplikacja" %><br />
+    <%= f.collection_select(:application_id, Application.all, :id, :display_name, {:prompt => true}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Dodaj" %>
+  </div>
+<% end %>
