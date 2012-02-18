@@ -1,6 +1,6 @@
 #encoding: utf-8
 class ContactPeopleController < ApplicationController
-  before_filter :authenticate
+  before_filter :admin_required
   # GET /contact_people
   # GET /contact_people.json
   def index

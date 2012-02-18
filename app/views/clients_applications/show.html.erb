@@ -5,15 +5,7 @@
   <%= @clients_application.start_date %>
 </p>
 
-
-<% klasa = "nie_wygasa"
-   if (Date.today >= @clients_application.expire_date - 30.days && Date.today < @clients_application.expire_date)
-     klasa = "niedlugo_wygasa"
-   elsif (Date.today >= @clients_application.expire_date)
-     klasa = "wygasla"
-   end
-%>  
-<p class = "<%= klasa %>">
+<p>
   <b>Expire date:</b>
   <%= @clients_application.expire_date %>
   <% if (klasa == "niedlugo_wygasa" || klasa == "wygasla") %>
@@ -38,6 +30,10 @@
 <p>
   <b>Klienci:</b>
   <%= @clients_application.client.display_name%>
+</p>
+<p>
+  <b>Aplikacja:</b>
+  <%= @clients_application.application.display_name%>
 </p>
 
 

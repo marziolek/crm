@@ -1,6 +1,12 @@
 #encoding: utf-8
 class ClientsApplicationsController < ApplicationController
   before_filter :authenticate
+  before_filter :admin_required, :except => [ :user_apps ]
+    layout :is_admin
+  
+	def is_admin
+		current_user.admin? ? "application" : "bugtracking"
+	end
   # GET /clients_applications
   # GET /clients_applications.json
   def index
@@ -93,6 +99,14 @@ class ClientsApplicationsController < ApplicationController
       format.html # add_app_to_client.html.erb
       format.json { render json: @clients_application }
     end
+  end
+  
+  def user_apps
+		@licences = current_user.client.clients_applications
+		respond_to do |format|
+		  format.html # user_app.html.erb
+		  format.json { render json: @licences }
+		end
   end
 
 end
