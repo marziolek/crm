@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(:version => 20120218161936) do
     t.integer  "client_id"
   end
 
+  create_table "emails", :force => true do |t|
+    t.string   "email_address"
+    t.string   "title"
+    t.text     "msg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "email"
