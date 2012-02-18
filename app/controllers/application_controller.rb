@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
   
   def mail
     @contact_person = ContactPerson.find(params[:id])
-    render "client_mailer/new.html.erb"
     
-    #ClientMailer.powiadomienie(@contact_person).deliver
+    render "client_mailer/new.html.erb"
+    def send_mail
+      ClientMailer.powiadomienie(@contact_person).deliver
+    end
   end
-  
+
   protect_from_forgery
   helper_method :current_user_session, :current_user
   private
