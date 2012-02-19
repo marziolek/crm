@@ -10,10 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <% @contact_person = ContactPerson.find(params[:id]) %>
   <div class="field">
     <%= f.label :email_address %><br />
-    <%= f.text_field :email_address %>
+    <%= f.text_field :email_address, :value => @contact_person.email %>
   </div>
   <div class="field">
     <%= f.label :title %><br />

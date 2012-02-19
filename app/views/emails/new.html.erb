@@ -1,4 +1,5 @@
-<h1>New email</h1>
+<% @contact_person = ContactPerson.find(params[:id]) %>
+<h1>E-mail do <%= @contact_person.name %> <%= @contact_person.surname %> z firmy <%= Client.find(@contact_person.client_id).name %></h1>
 
 <%= render 'form' %>
 
