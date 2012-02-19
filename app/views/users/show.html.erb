@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @user.login %></h2>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%= 
+	if @user.admin != ""
+		"nie" 
+	else
+		"tak" 
+	end%>
+</p>
+
+
+<%= link_to 'Edytuj', edit_user_path(@user) %> |
+<%= link_to 'Usuń', @user, confirm: 'Jesteś pewien?', method: :delete %> |
+<%= link_to 'Wstecz', users_path %> |

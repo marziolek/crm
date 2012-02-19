@@ -5,6 +5,8 @@ class Application < ActiveRecord::Base
 	has_many :clients_applications
 	has_many :clients, :through => :clients_applications
 	
+	has_many :bugs
+	
 	def display_name
 		"#{name} - #{version}"
 	end

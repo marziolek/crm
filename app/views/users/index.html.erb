@@ -1,0 +1,35 @@
+<h1>Użytkownicy</h1>
+<table>
+  <thead>
+    <tr>
+      <th>lp.</th>
+      <th>Login</th>
+      <th>E-mail</th>
+      <th>Admin</th>
+	  <th>Klient</th>
+    </tr>
+  </thead>
+
+<% 
+i = 1
+@users.each do |user| 
+%>
+  <tr onclick="document.location='<%= user_path(user) %>';">
+    <td><%= i %></td>
+    <td><%= user.login %></td>
+    <td><%= user.email %></td>
+    <td><%= user.admin %></td>
+	<% if user.client_id != nil%>
+		<td><%= user.client.display_name %></td>
+	<% else %>
+		<td> - </td>
+	<% end %>
+  </tr>
+<%
+i = i+1
+ end %>
+</table>
+
+<br />
+
+<%= link_to 'Dodaj nowego klienta', new_user_path %>

@@ -1,5 +1,10 @@
 Crm::Application.routes.draw do
 
+  #get "bugs/index"
+  #get "bugs/new"
+  #get "bugs/create"
+  #get "bugs/delete"
+  #get "bugs/show"
   #get "user_sessions/new"
   #get "user_sessions/create"
   #get "user_sessions/destroy"
@@ -23,6 +28,8 @@ Crm::Application.routes.draw do
   end
 
   resources :applications
+  
+  resources :bugs
 
   resources :clients
 

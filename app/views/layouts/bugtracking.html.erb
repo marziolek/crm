@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zgłaszanie błędów</title>
+    <%= stylesheet_link_tag  "style.css" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="top"></div>
+    <div id="content">
+      <div id="menu">
+        <%= if (controller_name == "clients_applications") then (link_to "Moje licencje", user_apps_clients_application_path(current_user), id: :menu_highlighted)
+            else (link_to "Moje licencje", clients_applications_path)
+            end 
+        %>
+		<%= if (controller_name == "bugs") then (link_to "Błedy", bugs_path, id: :menu_highlighted)
+            else (link_to "Błedy", bugs_path)
+            end 
+        %>
+        <% if current_user %>  
+        <%= link_to "Wyloguj "+current_user.login, user_session_path, method: :delete, id: :wyloguj %>
+        <% end %> 
+      </div>
+      <%= yield %>
+    </div>
+    <footer>
+    
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,36 @@
+<h1>Licencje </h1>
+<table>
+  <thead>
+    <tr>
+	  <th>Nazwa</th>
+	  <th>Wersja</th>
+      <th>Data początku</th>
+      <th>Data wygaśnięcia</th>
+      <th>Typ licencji</th>
+      <th>Liczba stanowisk</th>
+      <th>Klucz produktu</th>
+    </tr>
+  </thead>
+
+<% @licences.each do |clients_application| %>
+  <% klasa = "nie_wygasa"
+     if (Date.today >= clients_application.expire_date - 30.days && Date.today < clients_application.expire_date)
+        klasa = "niedlugo_wygasa"
+     elsif (Date.today >= clients_application.expire_date)
+        klasa = "wygasla"
+     end
+  %>  
+<tr class = "<%= klasa %>" onclick="document.location='<%= clients_application_path(clients_application) %>';">
+    <td><%= clients_application.application.name %></td>
+    <td><%= clients_application.application.version %></td>
+    <td><%= clients_application.start_date %></td>
+    <td><%= clients_application.expire_date %></td>
+    <td><%= clients_application.license_type %></td>
+    <td><%= clients_application.number_of_computers %></td>
+    <td><%= clients_application.product_key %></td>
+	<th><%= link_to 'Nowy błąd', new_bug_path %></th>
+  </tr>
+<% end %>
+</table>
+<p class="legenda_pomarańczowa">Wygasa za miesiąc lub krócej.</p>
+<p class="legenda_czerwona">Wygasła!</p>
