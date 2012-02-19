@@ -13,7 +13,6 @@ Crm::Application.routes.draw do
   
   resources :emails
 
-  resources :client_contact_people
 
   resources :contact_people do
     get :emails, :action => 'new', :controller => 'emails',  :on => :member
@@ -27,7 +26,9 @@ Crm::Application.routes.draw do
   resources :applications
 
   resources :clients
-
+  
+  resources :client_contact_people
+  #o co chodzi?
   resources :clients_contact_people
 
   resources :users

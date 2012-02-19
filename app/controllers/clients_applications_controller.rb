@@ -102,11 +102,12 @@ class ClientsApplicationsController < ApplicationController
   end
   
   def user_apps
-		@licences = current_user.client.clients_applications
-		respond_to do |format|
-		  format.html # user_app.html.erb
-		  format.json { render json: @licences }
-		end
+    @licences = current_user.client.clients_applications
+  
+    respond_to do |format|
+    format.html # user_app.html.erb
+    format.json { render json: @licences }
+    end
   end
-
 end
+
