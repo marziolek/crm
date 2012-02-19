@@ -1,0 +1,26 @@
+<h1>Dodaj błąd</h1>
+<%= form_for @bug do |f| %>
+ 
+  <p>
+  <%= f.label :application_id %> <br />
+  <%= f.collection_select(:application_id, Application.all, :id, :display_name, {:prompt => true})  %>
+  </p>
+  <p>
+  <%= f.label :user_id %> <br />
+  <%= f.text_field :user_id, :value => current_user.id%>
+  </p>
+  <p>
+  <%= f.label :topic %> <br />
+  <%= f.text_field :topic %>
+  </p>
+  <p>
+  <%= f.label:description %> <br />
+  <%= f.text_area :description  %>
+  </p>
+    <p>
+  <%= f.label :status %> <br />
+  <%=  f.collection_select(:status_id, Status.all, :id, :name, {:prompt => true}) %>
+  </p>
+  <p><%= f.submit "Dodaj błąd" %> </p>
+<% end %>
+

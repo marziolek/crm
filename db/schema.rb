@@ -11,12 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120218161936) do
+ActiveRecord::Schema.define(:version => 20120218212335) do
 
   create_table "applications", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "version"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bugs", :force => true do |t|
+    t.integer  "application_id"
+    t.integer  "user_id"
+    t.string   "topic"
+    t.string   "description"
+    t.integer  "status_id",      :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,6 +68,12 @@ ActiveRecord::Schema.define(:version => 20120218161936) do
     t.string   "email_address"
     t.string   "title"
     t.text     "msg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

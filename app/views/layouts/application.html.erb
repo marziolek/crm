@@ -30,6 +30,10 @@
             else (link_to "Użytkownicy", users_path)
             end 
         %>
+		<%= if (controller_name == "bugs") then (link_to "Błędy", bugs_path, id: :menu_highlighted)
+            else (link_to "Błędy", bugs_path)
+            end 
+        %>
 
         <% if current_user %>  
         <%= link_to "Wyloguj "+current_user.login, user_session_path, method: :delete, id: :wyloguj %>
