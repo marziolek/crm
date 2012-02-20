@@ -9,7 +9,11 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Logowanie powiodło się."
-      redirect_to root_url
+		if current_user.admin?
+			redirect_to root_url
+		else
+			redirect_to user_apps_clients_application_path(current_user)
+		end
     else
       flash[:notice] = "Błędne dane."
       render :action => 'new'

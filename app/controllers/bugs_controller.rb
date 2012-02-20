@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class BugsController < ApplicationController
 	before_filter :authenticate
 	layout :is_it_admin
@@ -7,7 +8,12 @@ class BugsController < ApplicationController
 	end
 
   def index
-		@bugs = Bug.all
+		if current_user.admin?
+			@bugs = Bug.all
+		else
+			@bugs = current_user.bugs
+		end
+		
 		
 		respond_to do |format|
 		  format.html # index.html.erb
@@ -25,12 +31,49 @@ class BugsController < ApplicationController
   end
 
   def create
+	@bug = Bug.new(params[:bug])
+
+    respond_to do |format|
+      if @bug.save
+        format.html { redirect_to bugs_path, notice: 'Błąd został zgłoszony.' }
+        format.json { render json: @bug, status: :created, location: @bug }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @bug.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
-  def delete
+  def edit
+		@bug = Bug.find(params[:id])
+  end
+  
+  def update
+	@bug = Bug.find(params[:id])
+
+    respond_to do |format|
+      if @bug.update_attributes(params[:bug])
+        format.html { redirect_to @bug, notice: "Informacje o błędzie zostały zaktualizowane."}
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @bug.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  def destroy
+    @bug = Bug.find(params[:id])
+    @bug.destroy
+
+    respond_to do |format|
+      format.html { redirect_to bugs_url, notice: "Usunięto zgłoszony błąd." }
+      format.json { head :ok }
+    end
   end
 
   def show
+		@bug = Bug.find(params[:id])
   end
 
 end

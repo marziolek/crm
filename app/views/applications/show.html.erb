@@ -3,7 +3,7 @@
 <h2><%= @application.name %></h2>
 
 <p>
-  <b>Description:</b>
+  <b>Opis:</b>
   <%= @application.description %>
 </p>
 
@@ -16,6 +16,14 @@
 <ul>
   <% @application.clients.each do |cli| %>
 	<li><%= cli.display_name%></li>
+  <% end %>
+</ul>
+</p>
+<p>
+  <b>Zgłoszone błedy:</b>
+<ul>
+  <% @application.bugs.each do |bug| %>
+	<li><%= bug.id%> - <%= bug.created_at%> - <%= bug.topic%> - <%= bug.status.name%></li>
   <% end %>
 </ul>
 </p>

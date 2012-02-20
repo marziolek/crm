@@ -22,6 +22,7 @@
         <%= link_to "Wyloguj "+current_user.login, user_session_path, method: :delete, id: :wyloguj %>
         <% end %> 
       </div>
+	  <p id="notice"><%= notice %></p>
       <%= yield %>
     </div>
     <footer>

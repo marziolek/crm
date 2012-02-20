@@ -1,2 +1,29 @@
 <h1>Błędy</h1>
-<%= debug(@bugs)%>
+<table>
+  <thead>
+    <tr>
+	  <th>Nr błędu</th>
+      <th>Nazwa aplikacji</th>
+      <th>Użytkownik</th>
+      <th>Klient</th>
+      <th>Temat</th>
+	  <th>Data zgłoszenia</th>
+	  <th>Status</th>
+    </tr>
+  </thead>
+<% @bugs.each do |bug| %>
+  <tr onclick="document.location='<%= bug_path(bug) %>';">
+	<td><%= bug.id%></td>
+    <td><%= bug.application.display_name%></td>
+    <td><%= bug.user.login %></td>
+	<td><%= bug.user.client_id? ? bug.user.client.display_name : "-"%></td>
+    <td><%= bug.topic%></td>
+	<td><%= bug.created_at%></td>
+	<td><%= bug.status.name%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "Zgloś nowy błąd", new_bug_path %>

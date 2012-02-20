@@ -30,11 +30,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = "Rejestracja powiodła się."
-      redirect_to root_url
-    else
-      render :action =>'new'
+	
+	respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: "Rejestracja powiodła się." }
+        format.json { render json: @user, status: :created, location: @user}
+      else
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -49,7 +53,7 @@ class UsersController < ApplicationController
 	else 
 		@user.admin = false
 	end
-	
+
     if @user.update_attributes(params[:user])
       flash[:notice] = "Profil zaktualizowany pomyślnie"
       redirect_to users_url
@@ -69,5 +73,4 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
-
 end

@@ -1,25 +1,42 @@
+<% 
+if current_user.admin?
+	apps = Application.all
+	admin = true
+else
+	apps = current_user.client.applications
+	admin = false
+end
+%>
+
 <h1>Dodaj błąd</h1>
 <%= form_for @bug do |f| %>
  
   <p>
   <%= f.label :application_id %> <br />
-  <%= f.collection_select(:application_id, Application.all, :id, :display_name, {:prompt => true})  %>
+  <%= f.collection_select(:application_id,  apps, :id, :display_name, {:prompt => true})  %>
   </p>
   <p>
-  <%= f.label :user_id %> <br />
-  <%= f.text_field :user_id, :value => current_user.id%>
+  <%= f.label "Zglaszający" %> <br />
+  <%= current_user.login%>
+  <%= f.text_field :user_id, :value => current_user.id, :hidden => true%>
   </p>
   <p>
-  <%= f.label :topic %> <br />
+  <%= f.label "Temat" %> <br />
   <%= f.text_field :topic %>
   </p>
   <p>
-  <%= f.label:description %> <br />
+  <%= f.label "Opis błedu" %> <br />
   <%= f.text_area :description  %>
   </p>
+  <% if admin %>
+   <p>
+  <%= f.label "Komentarz"%> <br />
+  <%= f.text_area :comment %>
+  </p>
+  <% end %>
     <p>
   <%= f.label :status %> <br />
-  <%=  f.collection_select(:status_id, Status.all, :id, :name, {:prompt => true}) %>
+  <%=  f.collection_select(:status_id, Status.all, :id, :name, {:prompt => true}, :disabled => !admin) %>
   </p>
   <p><%= f.submit "Dodaj błąd" %> </p>
 <% end %>

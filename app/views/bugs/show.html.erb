@@ -1,2 +1,24 @@
-<h1>Bugs#show</h1>
-<p>Find me in app/views/bugs/show.html.erb</p>
+<h1>Detale błędu nr: <%= @bug.id%> - <%= @bug.status.name%></h1>
+<p>
+	Aplikacja: <%= @bug.application.display_name%>
+</p>
+<p>
+	Klient: <%= @bug.user.client_id? ? @bug.user.client.display_name : "-"%>
+</p>
+<p>
+	Data zgloszenia: <%= @bug.created_at%>
+</p>
+<p>
+	Osoba zgłaszająca: <%= @bug.user.login%>, <%= @bug.user.email%>
+</p>
+<p>
+	Opis: <%= @bug.description%>
+</p>
+<p>
+	Komentarz: <%= @bug.comment%>
+</p>
+<br/>
+
+
+<%= link_to "Edytuj", edit_bug_path %> |
+<%= link_to 'Usuń', @bug, confirm: 'Jesteś pewien?', method: :delete %> 
