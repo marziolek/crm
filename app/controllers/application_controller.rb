@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     if !current_user
       redirect_to new_user_session_path
     elsif !current_user.admin?
-      flash[:notice] = "You are not allowed to do that."
+      flash[:notice] = "Nie masz uprawnień żeby to zrobić."
       redirect_to user_apps_clients_application_path(current_user)
     end
   end

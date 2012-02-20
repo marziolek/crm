@@ -13,7 +13,7 @@
 <% @applications.each do |application| %>
   <tr onclick="document.location='<%= application_path(application) %>';">
     <td><%= application.name %></td>
-    <td><%= application.description %></td>
+    <td class="opis"><%= application.description %></td>
     <td><%= application.version %></td>
     <td><ul>
 	<% application.clients.each do |kli|%>	

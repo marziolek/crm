@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 	end
 	
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Profil zaktualizowany pomyślnie"
+      flash[:notice] = "Profil zaktualizowany pomyślnie."
       redirect_to users_url
     else
       render :action => 'edit'

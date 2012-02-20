@@ -18,8 +18,6 @@ class ContactPeopleController < ApplicationController
     @contact_person = ContactPerson.find(params[:id])
     @contact_person_company = Client.find(@contact_person.client_id)
 
-    #ClientMailer.powiadomienie(@contact_person).deliver
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contact_person }
@@ -49,7 +47,7 @@ class ContactPeopleController < ApplicationController
 
     respond_to do |format|
       if @contact_person.save
-        format.html { redirect_to @contact_person, notice: 'Contact person was successfully created.' }
+        format.html { redirect_to @contact_person, notice: 'Osoba kontaktowa została stworzona.' }
         format.json { render json: @contact_person, status: :created, location: @contact_person }
       else
         format.html { render action: "new" }
@@ -65,7 +63,7 @@ class ContactPeopleController < ApplicationController
 
     respond_to do |format|
       if @contact_person.update_attributes(params[:contact_person])
-        format.html { redirect_to @contact_person, notice: 'Contact person was successfully updated.' }
+        format.html { redirect_to @contact_person, notice: 'Osoba kontaktowa została zaktualizowana.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

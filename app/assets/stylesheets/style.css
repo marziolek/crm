@@ -42,6 +42,9 @@ tbody > tr:hover {
   background-color:#DDD;
   cursor:pointer;
 }
+tbody > tr.user:hover {
+  cursor:default;
+}
 
 th {
   text-align:center;
@@ -54,6 +57,19 @@ td {
   border:1px solid #DDD;
   margin:0;
   padding:5px;
+}
+
+td.opis {
+  width:70%;
+}
+
+td > ul {
+  list-style:none;
+  margin:0;
+}
+
+td > ul {
+  padding:0;
 }
 
 td > a {

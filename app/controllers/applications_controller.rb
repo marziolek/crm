@@ -47,7 +47,7 @@ class ApplicationsController < ApplicationController
 
     respond_to do |format|
       if @application.save
-        format.html { redirect_to @application, notice: 'Application was successfully created.' }
+        format.html { redirect_to @application, notice: 'Aplikacja została stworzona.' }
         format.json { render json: @application, status: :created, location: @application }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class ApplicationsController < ApplicationController
 
     respond_to do |format|
       if @application.update_attributes(params[:application])
-        format.html { redirect_to @application, notice: 'Application was successfully updated.' }
+        format.html { redirect_to @application, notice: 'Aplikacja została zaktulizowana.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
