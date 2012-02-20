@@ -10,7 +10,17 @@ end
 %>
 
 <%= form_for @bug do |f| %>
- 
+  <% if @bug.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bug.errors.count, "error") %> prohibited this bug from being saved:</h2>
+
+      <ul>
+      <% @bug.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
   <%= f.label :application_id %> <br />
   <%= f.collection_select(:application_id,  apps, :id, :display_name, {:prompt => true})  %>
