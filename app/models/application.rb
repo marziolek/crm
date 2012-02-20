@@ -8,6 +8,6 @@ class Application < ActiveRecord::Base
 	has_many :bugs
 	
 	def display_name
-		"#{name} - #{version}"
+		"#{name} - v.#{version}"
 	end
 end

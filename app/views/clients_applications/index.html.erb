@@ -3,6 +3,8 @@
 <table>
   <thead>
     <tr>
+	  <th>Aplikacja</th>
+	  <th>Klient</th>
       <th>Data początku</th>
       <th>Data wygaśnięcia</th>
       <th>Typ licencji</th>
@@ -20,6 +22,8 @@
      end
   %>  
 <tr class = "<%= klasa %>" onclick="document.location='<%= clients_application_path(clients_application) %>';">
+    <td><%= clients_application.application.display_name %></td>
+    <td><%= clients_application.client.display_name%></td>
     <td><%= clients_application.start_date %></td>
     <td><%= clients_application.expire_date %></td>
     <td><%= clients_application.license_type %></td>
