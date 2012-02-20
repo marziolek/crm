@@ -2,8 +2,8 @@
 <table>
   <thead>
     <tr>
-	  <th>Nazwa</th>
-	  <th>Wersja</th>
+      <th>Nazwa</th>
+      <th>Wersja</th>
       <th>Data początku</th>
       <th>Data wygaśnięcia</th>
       <th>Typ licencji</th>
@@ -20,7 +20,7 @@
         klasa = "wygasla"
      end
   %>  
-<tr class = "<%= klasa %>" onclick="document.location='<%= clients_application_path(clients_application) %>';">
+<tr class = "<%= klasa %> user">
     <td><%= clients_application.application.name %></td>
     <td><%= clients_application.application.version %></td>
     <td><%= clients_application.start_date %></td>

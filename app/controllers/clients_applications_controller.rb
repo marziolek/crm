@@ -52,7 +52,7 @@ class ClientsApplicationsController < ApplicationController
 
     respond_to do |format|
       if @clients_application.save
-        format.html { redirect_to @clients_application, notice: 'Clients application was successfully created.' }
+        format.html { redirect_to @clients_application, notice: 'Aplikacja klienta została stworzona.' }
         format.json { render json: @clients_application, status: :created, location: @clients_application }
       else
         format.html { render action: "new" }
@@ -68,7 +68,7 @@ class ClientsApplicationsController < ApplicationController
 
     respond_to do |format|
       if @clients_application.update_attributes(params[:clients_application])
-        format.html { redirect_to @clients_application, notice: 'Clients application was successfully updated.' }
+        format.html { redirect_to @clients_application, notice: 'Aplikacja klienta została zaktulaizowana.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

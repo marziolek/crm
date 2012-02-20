@@ -18,10 +18,12 @@ Crm::Application.routes.draw do
   
   resources :emails
 
-
   resources :contact_people do
-    get :emails, :action => 'new', :controller => 'emails',  :on => :member
+    resources :emails
+    get :emails,  :on => :member
+    #get :emails, :action => 'new', :controller => 'emails',  :on => :member
   end
+
 
   resources :clients_applications do
     get :add_app_to_client, :on => :member
@@ -34,10 +36,6 @@ Crm::Application.routes.draw do
 
   resources :clients
   
-  resources :client_contact_people
-  #o co chodzi?
-  resources :clients_contact_people
-
   resources :users
 
   resource :user_session, :only => [:new, :create, :destroy]

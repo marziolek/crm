@@ -1,4 +1,6 @@
+#encoding: UTF-8
 class EmailsController < ApplicationController
+  before_filter :admin_required
   # GET /emails
   # GET /emails.json
   def index
@@ -44,14 +46,14 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       if @email.save
-        format.html { redirect_to @email, notice: 'Email was successfully created.' }
+        format.html { redirect_to @email, notice: 'Email został wysłany.' }
         format.json { render json: @email, status: :created, location: @email }
+        ClientMailer.powiadomienie(@email).deliver
       else
-        format.html { render action: "new" }
+        format.html { redirect_to request.env['HTTP_REFERER'] }                    
         format.json { render json: @email.errors, status: :unprocessable_entity }
       end
     end
-    ClientMailer.powiadomienie(@email).deliver
   end
 
   # PUT /emails/1

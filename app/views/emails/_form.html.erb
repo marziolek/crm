@@ -4,26 +4,25 @@
       <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
 
       <ul>
-      <% @email.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% @email.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-  <% @contact_person = ContactPerson.find(params[:id]) %>
   <div class="field">
-    <%= f.label :email_address %><br />
-    <%= f.text_field :email_address, :value => @contact_person.email %>
+    <%= f.label "E-mail" %><br />
+    <%= f.text_field :email_address, :value => ContactPerson.find(params[:person]).email %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label "Tytuł wiadomości" %><br />
+    <%= f.text_field :title, :value => params[:title] %>
   </div>
   <div class="field">
-    <%= f.label :msg %><br />
+    <%= f.label "Treść wiadomości" %><br />
     <%= f.text_area :msg %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Wyślij" %>
   </div>
 <% end %>
