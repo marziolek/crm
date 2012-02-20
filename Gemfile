@@ -38,3 +38,4 @@ end
 gem 'authlogic'
 gem 'mail' 
 gem 'therubyracer'
+gem 'will_paginate'

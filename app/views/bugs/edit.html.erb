@@ -1,0 +1,43 @@
+<h1>Edytuj błąd nr: <%= @bug.id %></h1>
+<% 
+if current_user.admin?
+	apps = Application.all
+	admin = true
+else
+	apps = current_user.client.applications
+	admin = false
+end
+%>
+
+<%= form_for @bug do |f| %>
+ 
+  <p>
+  <%= f.label :application_id %> <br />
+  <%= f.collection_select(:application_id,  apps, :id, :display_name, {:prompt => true})  %>
+  </p>
+  <p>
+  <%= f.label "Zglaszający" %> <br />
+  <%= @bug.user.login%>
+  <%= f.text_field :user_id, :value => @bug.user_id, :hidden => true%>
+  </p>
+  <p>
+  <%= f.label "Temat" %> <br />
+  <%= f.text_field :topic %>
+  </p>
+  <p>
+  <%= f.label "Opis błędu" %> <br />
+  <%= f.text_area :description  %>
+  </p>
+  <% if admin %>
+   <p>
+  <%= f.label "Komentarz"%> <br />
+  <%= f.text_area :comment %>
+  </p>
+  <% end %>
+    <p>
+  <%= f.label :status %> <br />
+  <%=  f.collection_select(:status_id, Status.all, :id, :name, {:prompt => true}, :disabled => !admin) %>
+  </p>
+  <p><%= f.submit "Aktualizuj błąd" %> </p>
+<% end %>
+

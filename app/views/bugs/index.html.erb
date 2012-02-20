@@ -11,7 +11,7 @@
 	  <th>Status</th>
     </tr>
   </thead>
-<% @bugs.each do |bug| %>
+<% @bugs2.each do |bug| %>
   <tr onclick="document.location='<%= bug_path(bug) %>';">
 	<td><%= bug.id%></td>
     <td><%= bug.application.display_name%></td>
@@ -23,7 +23,8 @@
   </tr>
 <% end %>
 </table>
-
+<%= page_entries_info @bugs2 %>
+<%= will_paginate @bugs2 %>
 <br />
-
+<br />
 <%= link_to "Zgloś nowy błąd", new_bug_path %>

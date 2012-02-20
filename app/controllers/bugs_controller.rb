@@ -7,14 +7,16 @@ class BugsController < ApplicationController
 		current_user.admin? ? "application" : "bugtracking"
 	end
 
-  def index
+  def index  
+  
 		if current_user.admin?
 			@bugs = Bug.all
+			@bugs2 = Bug.paginate(:page => params[:page], :per_page => 10)
 		else
 			@bugs = current_user.bugs
+			@bugs2 = current_user.bugs.paginate(:page => params[:page], :per_page => 10)
 		end
-		
-		
+	
 		respond_to do |format|
 		  format.html # index.html.erb
 		  format.json { render json: @bugs }
